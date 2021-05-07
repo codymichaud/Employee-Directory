@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ApiCall from '../../utils/APIcall';
-import Alert from '../Alert';
+import Alerts from '../Alerts';
 import EmploySearch from '../EmploySearch';
 import Tables from '../Tables';
 
@@ -18,7 +18,7 @@ class Container extends Component {
             .then((res) =>
                 this.setState({
                     employees: res.data.results,
-                    filterEmploy: res.data.results,
+                    filteredEmploy: res.data.results,
                 }))
             .catch((error) => {
                 this.setState({ error: error.message });
@@ -103,8 +103,11 @@ class Container extends Component {
                         <EmploySearch values={this.state.search}
                             handleInput={this.handleInput} />
                         <div className=''>
-
+                            <Tables state={this.state} filterEmploy={this.filterEmploy} sortByName={this.sortByName} />
                         </div>
+                        <Alerts type='warning' style={{ opacity: this.state.error ? 1 : 0 }}>
+                            {this.state.error}
+                        </Alerts>
                     </div>
                 </div>
             </div>
