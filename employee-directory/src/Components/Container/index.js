@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ApiCall from '../../utils/APIcall';
 import Alert from '../Alert';
+import EmploySearch from '../EmploySearch';
+import Tables from '../Tables';
 
 class Container extends Component {
     state = {
@@ -51,6 +53,64 @@ class Container extends Component {
         } else {
             this.setState({ error: '' });
         }
+    };
+    //Allows names to be sorted by first or last name
+    sortByName = (key) => {
+        let sortNameList;
+        let direction;
+
+        switch (key) {
+            case 'last':
+                if (this.state.sortDirection === 'asc') {
+                    sortNameList = this.state.filteredEmploy.sort((x, y) =>
+                        x.name.last > y.name.last ? 1 : -1
+                    );
+                    direction = 'dsc';
+                } else {
+                    sortNameList = this.state.filteredEmploy.sort((x, y) =>
+                        x.name.last < y.name.ast ? 1 : -1
+                    );
+                    direction = 'asc';
+                }
+                break;
+            case 'first':
+                if (this.state.sortDirection === 'asc') {
+                    sortNameList = this.state.filteredEmploy.sort((x, y) =>
+                        x.name.first > y.name.first ? 1 : -1
+                    );
+                    direction = 'dsc';
+                } else {
+                    sortNameList = this.state.filteredEmploy.sort((x, y) =>
+                        x.name.first < y.name.first ? 1 : -1
+                    );
+                    direction = 'asc';
+                }
+                break;
+            default:
+                break;
+        }
+        this.setState({
+            filterEmploy: sortNameList,
+            sortDirection: direction,
+        });
+    };
+
+    render() {
+        return (
+            <div className='row'>
+                <div className='col'>
+                    <div className='container'>
+                        <EmploySearch values={this.state.search}
+                            handleInput={this.handleInput} />
+                        <div className=''>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
     }
 
 }
+
+export default Container;
