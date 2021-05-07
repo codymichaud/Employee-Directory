@@ -1,12 +1,13 @@
 import React from 'react';
+import { TiWarning } from 'react-icons/ti';
 
 
-function Alert(props) {
+function Alerts(props) {
     return (
         <div>
-
+            <div className={`alert alert-${props.type} fade in`} role='alert' style=''
         </div>
     );
 }
 
-export default Alert;
+export default Alerts;
