@@ -24,7 +24,7 @@ class Container extends Component {
                 this.setState({ error: error.message });
             });
     }
-    handleInput = async (events) => {
+    handleInputChange = async (events) => {
         const values = events.target.values;
         await this.setState({ search: values });
         this.filterEmploy(values);
@@ -101,7 +101,7 @@ class Container extends Component {
                 <div className='col'>
                     <div className='container'>
                         <EmploySearch values={this.state.search}
-                            handleInput={this.handleInput} />
+                            handleInputChange={this.handleInputChange} />
                         <div className=''>
                             <Tables state={this.state} filterEmploy={this.filterEmploy} sortByName={this.sortByName} />
                         </div>
