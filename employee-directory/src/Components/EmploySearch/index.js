@@ -8,7 +8,7 @@ function EmploySearch(props) {
     return (
         <form>
             <div className='firstForm'>
-                <div className='input-field'>
+                <div className='inputField'>
                     <div className='icon'>
                         <BsSearch />
                     </div>
@@ -18,7 +18,7 @@ function EmploySearch(props) {
                         name='search'
                         type='text'
                         className='form-control'
-                        placeholder='Type here to search for someone'
+                        placeholder='Employee Search....'
                         id='search' />
                 </div>
             </div>

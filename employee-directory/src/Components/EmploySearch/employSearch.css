@@ -1,0 +1,26 @@
+form .firstForm {
+    width: 100%;
+    margin-bottom: 20px;
+};
+
+input {
+    overflow: visible;
+};
+
+.icon {
+    width: 80px;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    position: absolute;
+};
+
+form .firstForm .inputField input {
+    background: #207FFB;
+    height: 100%;
+    width: 100%;
+    color: #ffffff;
+    border-radius: 40px;
+    padding: auto;
+};
+
