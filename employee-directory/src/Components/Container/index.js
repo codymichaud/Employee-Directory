@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ApiCall from '../../utils/APIcall';
 import Alerts from '../Alerts';
 import EmploySearch from '../EmploySearch';
-import Tables from '../Tables';
+import EmployTable from '../EmployDisplay';
 
 class Container extends Component {
     state = {
@@ -103,7 +103,7 @@ class Container extends Component {
                         <EmploySearch values={this.state.search}
                             handleInputChange={this.handleInputChange} />
                         <div className=''>
-                            <Tables state={this.state} filterEmploy={this.filterEmploy} sortByName={this.sortByName} />
+                            <EmployTable state={this.state} filterEmploy={this.filterEmploy} sortByName={this.sortByName} />
                         </div>
                         <Alerts type='warning' style={{ opacity: this.state.error ? 1 : 0 }}>
                             {this.state.error}
